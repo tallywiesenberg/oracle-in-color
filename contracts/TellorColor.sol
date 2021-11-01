@@ -14,13 +14,13 @@ contract TellorColor is ERC721URIStorage {
     constructor() ERC721("TellorColor", "TIC") {}
 
 
-    function mint(address _recip, string memory _tokenURI) public returns (uint256) {
+    function mint(address _to, string memory _tokenURI) public returns (uint256) {
 
         // increment count of minted items
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
-        _mint(_recip, newItemId);
+        _mint(_to, newItemId);
         _setTokenURI(newItemId, _tokenURI);
 
         return newItemId;
